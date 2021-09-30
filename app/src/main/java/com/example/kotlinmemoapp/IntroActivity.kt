@@ -7,11 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.databinding.DataBindingUtil
+import com.example.kotlinmemoapp.databinding.ActivityIntroBindingImpl
 
 class IntroActivity : AppCompatActivity() {
+    private lateinit var introBinding: ActivityIntroBindingImpl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_intro)
+
+        introBinding = DataBindingUtil.setContentView(this, R.layout.activity_intro)
 
         Handler(Looper.getMainLooper()).postDelayed(object : Runnable {
             override fun run() {
