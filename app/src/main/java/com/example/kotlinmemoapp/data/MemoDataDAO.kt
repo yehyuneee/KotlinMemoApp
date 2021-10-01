@@ -1,5 +1,6 @@
 package com.example.kotlinmemoapp.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -13,7 +14,7 @@ import androidx.room.Query
 @Dao
 interface MemoDataDAO {
     @Query("SELECT * FROM Memo")
-    fun getAllMemo(): List<MemoData>
+    fun getAllMemo(): LiveData<List<MemoData>>
 
     @Query("DELETE FROM Memo WHERE `index` = (:removeIndex)")
     fun removeMemo(removeIndex: Int)

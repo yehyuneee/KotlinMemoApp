@@ -19,6 +19,7 @@ abstract class MemoDB : RoomDatabase() {
         private var Instance: MemoDB? = null
         fun getInstance(context: Context): MemoDB? {
             if (Instance == null) {
+                // 여러 스레드가 접근하지 못하도록 한다
                 synchronized(MemoDB::class) {
                     Instance = Room.databaseBuilder(context.applicationContext,
                         MemoDB::class.java,
