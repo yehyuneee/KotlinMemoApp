@@ -18,7 +18,7 @@ import com.example.kotlinmemoapp.data.MemoViewModel
 import com.example.kotlinmemoapp.databinding.ActivityMainBindingImpl
 import androidx.lifecycle.ViewModel as ViewModels
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : Activity(), View.OnClickListener {
 
     private lateinit var mainBiding: ActivityMainBindingImpl
     private var memoDB: MemoDB? = null
@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         mainBiding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         mainBiding.main = this
-        mainBiding.lifecycleOwner = this
 
         memoDB = MemoDB.getInstance(this)
 
